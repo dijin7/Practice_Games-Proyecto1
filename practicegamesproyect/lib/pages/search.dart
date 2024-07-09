@@ -33,6 +33,49 @@ class _SearchsState  extends  State<Searchs>{
               style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
             ),
           ), 
+
+          drawer: Drawer(
+          child: ListView(
+            padding: EdgeInsets.all(12.3),
+            children: [
+              DrawerHeader
+              (
+                child: Text('menu')
+              ),
+
+            
+              ListTile(
+                title: Text('Perfil'),
+                onTap: () {
+                Navigator.pushReplacementNamed(context, 'pages/profile');
+                },
+              ),
+              ListTile(
+                title: Text('Busqueda'),
+                onTap: (){
+                Navigator.pushReplacementNamed(context, 'pages/search');
+                },
+              ),
+              ListTile(
+                title: Text('Libreria'),
+                onTap: () {
+                Navigator.pushReplacementNamed(context, 'pages/lib/lib');
+                },
+              ),
+              ListTile(
+                title: Text('News'),
+                onTap:() {
+                Navigator.pushReplacementNamed(context, 'pages/news');
+                },
+              ),
+
+
+
+
+            ],
+          ),
+        ),
+
         backgroundColor: Colors.black,
         body: Column(
           children: [

@@ -42,12 +42,44 @@ class MyApp extends StatelessWidget {
         'pages/profile':(context) => Profiles(),
       },
 
-
+    
 
 
     );
   }
 }
+
+
+class EstadoRutina {
+  int? IdRuti;
+  int? Avance;
+
+  EstadoRutina(int Id, [int Av = 0]){
+    this.IdRuti = Id;
+    this.Avance = Av;
+  }
+} 
+class Rutinas {
+  int IdRutina;
+  String Nombre;
+  String Descripcion;
+  List<String> Pasos;
+  String Resultados;
+  String Dificultad;
+
+  Rutinas(this.IdRutina, this.Nombre, this.Descripcion,this.Pasos ,this.Resultados, this.Dificultad);
+}
+class Juegos {
+  int IdJuego;
+  String Nombre;
+  String Descripcion;
+  List<Rutinas>? JuegosRutinas;
+  String ModosDeJuego;
+  String? ImaagenJuegoNombre;
+
+  Juegos(this.IdJuego, this.Nombre, this.Descripcion, this.JuegosRutinas, this.ModosDeJuego, this.ImaagenJuegoNombre);
+}
+
 
 class MyHomePage extends StatefulWidget {
   const MyHomePage({super.key, required this.title});
@@ -64,6 +96,8 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) {
 
     return Scaffold(
+
+     
 
       body: Center(
         child: Card(
