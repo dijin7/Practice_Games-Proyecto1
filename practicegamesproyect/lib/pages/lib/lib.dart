@@ -109,7 +109,7 @@ class _LibState  extends  State<Lib>{
               ),
             ),
           ),  
-          SizedBox(height:3 ),
+          SizedBox(height:3 )/*,
           Center(
             child:Card
                 (
@@ -155,7 +155,7 @@ class _LibState  extends  State<Lib>{
                     ),
                   ),
                 ),
-            ),
+            ),*/
 
           ],
         ),

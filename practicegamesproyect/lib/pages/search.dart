@@ -121,23 +121,15 @@ class _SearchsState  extends  State<Searchs>{
                           ),
                         ),
                     ),
-                    const SizedBox(height: 20, width: 1000,),
-                    const Text('Genero: MOBA  PvP  RolAcción  Co-op'),
-                    const Text('Genero: Plataformas: Windows  GeForceNow  macOS '),
-                    Container(
-                      decoration: BoxDecoration(
-                        border: Border.all(color: Colors.black),
-                        borderRadius: BorderRadius.circular(2.0),
-                      ),
-                    ),
+                    const SizedBox(height: 20, width: 1000,), 
                     TextButton( 
                       child: Text('Ver rutinas'),
                       onPressed:() {
-                        Navigator.pushReplacementNamed(context,'pages/game');
+                        Navigator.pushReplacementNamed(context,'pages/game', arguments: 1);
                       },
                     ),
                     Container(
-                      decoration: BoxDecoration(
+                        decoration: BoxDecoration(
                         border: Border.all(color: Colors.black),
                         borderRadius: BorderRadius.circular(2.0),
                       ),
@@ -171,17 +163,50 @@ class _SearchsState  extends  State<Searchs>{
                         ),
                     ),
                     const SizedBox(height: 1, width: 1000,),
-                    const Text('Genero: Disparo PrimeraPersona PvP Co-op'),
-                    const Text('Genero: Plataformas: Windows PS4 PS5 NS XbOne XbSX'),
+                    TextButton( 
+                      child: Text('Ver rutinas'),
+                      onPressed:() {
+                        Navigator.pushReplacementNamed(context,'pages/game', arguments: 2);
+                      },
+                    ),
                     Container(
                       decoration: BoxDecoration(
                         border: Border.all(color: Colors.black),
                         borderRadius: BorderRadius.circular(2.0),
                       ),
                     ),
+                  ],
+                ),
+              ),
+            ),
+          ),
+          SizedBox(height:3 ),
+          Center(
+            child: Card(
+              elevation: 5,
+              color: Colors.yellow,
+              child: Padding(
+                padding: EdgeInsets.all(15.0),
+                child: Column(
+                  mainAxisSize: MainAxisSize.min,
+                  children: <Widget>[
+                    Title(color: Colors.black, 
+                    child:const Text
+                      (
+                      'Smash', 
+                      textAlign: TextAlign.center,
+                      style: 
+                        TextStyle
+                          (fontSize: 20, 
+                          fontWeight: FontWeight.bold
+                          ),
+                        ),
+                    ),
+                    const SizedBox(height: 1, width: 1000,),
                     TextButton( 
                       child: Text('Ver rutinas'),
                       onPressed:() {
+                        Navigator.pushReplacementNamed(context,'pages/game', arguments: 3);
                       },
                     ),
                     Container(

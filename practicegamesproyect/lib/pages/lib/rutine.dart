@@ -1,11 +1,19 @@
+
 import 'package:flutter/material.dart';
 
 class Rutine extends StatefulWidget {
-  @override
+    @override
   _rutineState createState() => _rutineState();
 }
 
 class _rutineState  extends  State<Rutine>{
+
+  bool? estaSeleccionado1 = false;
+  bool? estaSeleccionado2 = false;
+  bool? estaSeleccionado3 = false;
+  bool? estaSeleccionado4 = false;
+  bool? estaSeleccionado5 = false;
+
 
   int _Index = 1;
   List<Widget> body = const [
@@ -18,16 +26,13 @@ class _rutineState  extends  State<Rutine>{
   @override
 
   Widget build(BuildContext context) {
+
+  final List<String> listaPasos = ModalRoute.of(context)!.settings.arguments as List<String>;
+
+
     return Scaffold(
       appBar: AppBar
-          (title: const Text
-            (
-              'Farmear Minions',
-              textAlign: TextAlign.center,
-              style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
-            ),
-            
-          ),
+          (),
           backgroundColor: Colors.black,
           body: 
 
@@ -44,114 +49,21 @@ class _rutineState  extends  State<Rutine>{
                 child: Column(
                   mainAxisSize: MainAxisSize.min,
                   children: <Widget>[
-                    Title(color: Colors.black, child:Text('Farmear minions'),),
-                    Title(color: Colors.black, child:Text('Autor: 	Diego Betancourt - Fecha: 03/01/2020'),),
                     const SizedBox(height: 20, width: 1000,),
-                    const Text('Una de las cosas mas basicas con respecto al League of Legends es el farmeo. Para empezar, dejare una serie de pasos para que puedas mejorar este apartado. Esto te servira para mejorar tu economia en general dentro del juego, lo que a largo plazo te permitira ganar mas partidas.'),
+                    Text(listaPasos[0]),
+                    Text(listaPasos[1]),
+                    Text(listaPasos[2]),
+                    Text(listaPasos[3]),
+                    Text(listaPasos[4]),
                     SizedBox(height: 5),
-                    const Row(
-                      children: 
-                      [
-                        Icon
-                        (
-                        Icons.favorite, 
-                        color: Colors.red,
-                        ),
-                        SizedBox(width: 2,),
-                        Text('742'),
-                        SizedBox(width: 10,),
-                        Icon
-                        (
-                        Icons.share, 
-                        color: Colors.green,
-                        ),
-                      ],
-                    ),
                   ],
                 ),
               ),
             ),
 
-            Center(
-              child:Card
-              (
-                elevation: 4,
-                color: Colors.white,
-                child: Padding(
-                  padding: EdgeInsets.all(10.0),
-                  child: Column(
-                    mainAxisSize: MainAxisSize.min,
-                    children: <Widget>
-                    [
-                      Container(
-                        decoration: BoxDecoration(
-                          border: Border.all(color: Colors.black),
-                          borderRadius: BorderRadius.circular(2.0),
-                        ),
-                      ),
-                      TextButton
-                        (
-                          onPressed: ()
-                          {
-                             Navigator.pushReplacementNamed(context,'pages/lib/steps');
-                          }, 
-                          child: Text('Paso 1: Herramienta de practica y "Last Hit"'),
-                        ),
-                      Container(
-                      decoration: BoxDecoration(
-                        border: Border.all(color: Colors.black),
-                        borderRadius: BorderRadius.circular(2.0),
-                      ),
-                    ),
-                    TextButton( 
-                      child: Text('Paso 2: Control de oleadas'),
-                      onPressed:() {
-                      },
-                    ),
-                    Container(
-                      decoration: BoxDecoration(
-                        border: Border.all(color: Colors.black),
-                        borderRadius: BorderRadius.circular(5.0),
-                      ),
-                    ),
-                    TextButton( 
-                      child: Text('Paso 3: Pusheo y Movimiento de Lineas'),
-                      onPressed:() {
-                      },
-                    ),
-                    Container(
-                      decoration: BoxDecoration(
-                        border: Border.all(color: Colors.black),
-                        borderRadius: BorderRadius.circular(5.0),
-                      ),
-                    ),
-                    ],
-                  ),
-                ),
-              ),
-            ),
 
-            Center(    
-              child: Card(
-                elevation: 5,
-                color: Color.fromARGB(255, 255, 213, 0),
-                child: 
-                Padding(
-                  padding: EdgeInsets.all(15.0),
-                  child: Column(
-                    mainAxisSize: MainAxisSize.min,
-                    children: <Widget>[
-                      TextButton( 
-                        child: Text('Añadir a Libreria'),
-                        onPressed:() {
-                          Navigator.pushReplacementNamed(context,'pages/lib/lib');
-                        },
-                      ),                    
-                    ],
-                  ),
-                ),
-              ),
-            ),  
+
+
             ],
           ),
 

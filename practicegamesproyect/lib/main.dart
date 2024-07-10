@@ -12,7 +12,10 @@ import 'pages/lib/rutine.dart';
 import 'pages/lib/steps.dart';
 
 
+
 void main() { 
+
+
   runApp(const MyApp());
 }
 
@@ -28,7 +31,7 @@ class MyApp extends StatelessWidget {
       ),
       home: const MyHomePage(title: 'Practice Games Proyect'),
 
-
+      
       routes: {
         'pages/news':(context) => News(),
 
@@ -37,48 +40,30 @@ class MyApp extends StatelessWidget {
         'pages/lib/steps':(context) => Steps(),
 
         'pages/search':(context) => Searchs(),
-        'pages/game':(context) => Games(),
+
 
         'pages/profile':(context) => Profiles(),
       },
-
-    
-
-
+      onGenerateRoute: ((settings)
+        {
+          if(settings.name == 'pages/game'){
+            int id = settings.arguments as int;
+            return MaterialPageRoute(
+              builder: (context)
+              {
+                return Games(id: id);
+              }
+            );
+          }
+          assert(false, 'Falta ID del juego');
+          return null;
+        }
+      ),
     );
   }
 }
 
 
-class EstadoRutina {
-  int? IdRuti;
-  int? Avance;
-
-  EstadoRutina(int Id, [int Av = 0]){
-    this.IdRuti = Id;
-    this.Avance = Av;
-  }
-} 
-class Rutinas {
-  int IdRutina;
-  String Nombre;
-  String Descripcion;
-  List<String> Pasos;
-  String Resultados;
-  String Dificultad;
-
-  Rutinas(this.IdRutina, this.Nombre, this.Descripcion,this.Pasos ,this.Resultados, this.Dificultad);
-}
-class Juegos {
-  int IdJuego;
-  String Nombre;
-  String Descripcion;
-  List<Rutinas>? JuegosRutinas;
-  String ModosDeJuego;
-  String? ImaagenJuegoNombre;
-
-  Juegos(this.IdJuego, this.Nombre, this.Descripcion, this.JuegosRutinas, this.ModosDeJuego, this.ImaagenJuegoNombre);
-}
 
 
 class MyHomePage extends StatefulWidget {
@@ -109,15 +94,6 @@ class _MyHomePageState extends State<MyHomePage> {
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: <Widget>[
             //const ElevatedButton(onPressed: (){Navigator.pushNamed(context, '/pages/detail');},);
-            Text("Username"),
-
-              TextField(decoration: InputDecoration(labelText: 'Usuario') ,),
-
-            Text("Password",),
-    
-              TextField(obscureText:true, decoration: InputDecoration(labelText: 'Contraseña')),
-             
-             
              Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
